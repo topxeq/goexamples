@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<header>
+	<meta charset="utf-8">
+	<title>欢迎</title>
+</header>
+
+<body>
+	<div>
+		<span>欢迎来自</span>
+		<span style="color: green;">{{.RemoteAddr}}</span>
+		<span>的用户。</span>
+	</div>
+	<div style="margin-top: 20px;">
+		{{range $i, $v := .RandomStrings}}
+		<span>第{{$i}}个随机字符串：{{$v}}</span><br />
+		{{end}}
+	</div>
+
+</body>
+
+</html>
