@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	// 本例中使用了第三方包tk，可用go get -v github.com/topxeq/tk命令安装
 	"github.com/topxeq/tk"
 )
 
@@ -14,6 +15,7 @@ func main() {
 	// 获取第1个命令行参数（实际上是第二个命令行参数，可执行文件名是第1个，序号为0）
 	fileNameT := tk.GetParameterByIndexWithDefaultValue(os.Args, 1, "")
 
+	// 如果命令行参数中没有指定文件名则报错
 	if fileNameT == "" {
 		tk.Pl("文件名不能为空")
 
@@ -62,10 +64,10 @@ func main() {
 			break
 		}
 
-		// 去除行尾可能存在的\r字符（Windows中的文本文件一般的行尾结束符是连续的\r\n两个字符）
+		// 去除行尾可能存在的\r和\n字符（Windows中的文本文件一般的行尾结束符是连续的\r\n两个字符）
 		strT = strings.TrimRight(strT, "\r\n")
 
-		// 100行以内会输出预览
+		// 100行以内会输出预览，并输出行号
 		if countT < 100 {
 			tk.Pl("%v: %v", countT+1, strT)
 		}
