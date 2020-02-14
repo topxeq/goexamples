@@ -54,7 +54,7 @@ func main() {
 			// 错误有可能是到达文件末尾，此时正常终止循环
 			if errT == io.EOF {
 				strT = strings.TrimRight(strT, "\r\n")
-				if countT < 100 {
+				if countT < 10 {
 					tk.Pl("%v: %v", countT+1, strT)
 				}
 
@@ -68,7 +68,7 @@ func main() {
 		strT = strings.TrimRight(strT, "\r\n")
 
 		// 100行以内会输出预览，并输出行号
-		if countT < 100 {
+		if countT < 10 {
 			tk.Pl("%v: %v", countT+1, strT)
 		}
 
